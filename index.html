@@ -103,8 +103,24 @@ input,textarea,select{font:inherit;padding:12px 14px;border:1px solid var(--line
 @media(max-width:900px){.sl{flex-basis:calc((100% - 18px)/2)}}
 .sec-h h3,.about h3,.cgrid h3{line-height:1.15}
 .burger{display:none;width:44px;height:44px;flex:none;border:1px solid #2c3a32;border-radius:6px;background:transparent;color:#fff;font-size:22px;line-height:1;cursor:pointer;align-items:center;justify-content:center}
-@media(max-width:900px){.burger{display:flex}.links.open{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;margin:0;padding:8px 24px 18px;background:var(--ink);border-bottom:1px solid #1f2b25;box-shadow:0 14px 24px rgba(0,0,0,.4)}.links.open a{padding:14px 0;border-bottom:1px solid #1f2b25;font-size:16px}}
+@media(max-width:1100px){.links,.phone{display:none}.burger{display:flex}.nav .btn{margin-left:auto}.nav{gap:14px}.links.open{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;margin:0;padding:8px 24px 18px;background:var(--ink);border-bottom:1px solid #1f2b25;box-shadow:0 14px 24px rgba(0,0,0,.4)}.links.open a{padding:14px 0;border-bottom:1px solid #1f2b25;font-size:16px}}
 @media(max-width:600px){.sl{flex-basis:84%;aspect-ratio:3/4}.nb{display:none}section{padding:56px 0}.hero{min-height:0}.hero .wrap{padding-top:48px;padding-bottom:56px}.badges{gap:14px}.stats{padding:28px 0}.stats b{font-size:36px}}
+.offers{background:var(--ink);color:#fff}
+.ofbox{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.offers small{color:#8fd14f;font-size:13px;letter-spacing:.08em}
+.offers h3{font-family:Barlow Condensed,sans-serif;font-size:clamp(34px,5vw,46px);line-height:1.15;margin:4px 0 12px;font-weight:600}
+.offers p{color:#cfd6cf;margin:0}
+.offers label{color:#cfd6cf}
+.offers input{background:#141d18;border-color:#2c3a32;color:#fff}
+.offers .chk{display:flex;gap:10px;align-items:flex-start;font-size:14px}
+.offers .chk input{width:auto;margin-top:4px}
+.ph{display:flex;gap:8px}
+.ph b{display:grid;place-items:center;padding:0 14px;background:#141d18;border:1px solid #2c3a32;border-radius:4px;font-weight:500;color:#fff}
+.ph input{flex:1;min-width:0}
+#offmsg{color:#8fd14f;font-size:14px}
+@media(max-width:900px){.ofbox{grid-template-columns:1fr;gap:28px}}
+.callbar{display:none}
+@media(max-width:900px){body{padding-bottom:70px}.callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:var(--ink);border-top:1px solid #1f2b25}.cb{flex:1;text-align:center;padding:13px 8px;border-radius:4px;font-weight:600;font-size:14px;color:#fff;border:1px solid #cfd6cf;white-space:nowrap}.cb.call{flex:1.6;background:var(--green-d);border-color:var(--green-d)}}
 footer{background:var(--ink);color:#aeb8b0;text-align:center;padding:24px;font-size:14px}
 @media(max-width:900px){.nav img{height:60px}.nav .btn{padding:10px 14px;font-size:12px}.nav{height:80px;gap:12px}.hero{min-height:620px}.links,.phone{display:none}.nav{justify-content:space-between}.nav .btn{margin-left:auto}.about,.cgrid{grid-template-columns:1fr}.hero>svg{width:100%;height:50%;opacity:.5}}
 </style>
@@ -163,6 +179,18 @@ footer{background:var(--ink);color:#aeb8b0;text-align:center;padding:24px;font-s
 <ul id="projects"><li><b>Quality Assured</b>Tested materials and supervised workmanship on every site.</li><li><b>Expert Team</b>Engineers, technicians and site managers under one roof.</li><li><b>On-Time Delivery</b>Clear schedules and reliable material supply.</li></ul>
 </div></section>
 
+<section id="offers" class="offers"><div class="wrap ofbox">
+<div><small>Special deals</small><h3>Get offers &amp; updates</h3><p>Subscribe and we will send you our latest offers on construction, interior, painting and materials. No spam, and you can stop anytime.</p></div>
+<form id="of2">
+<label>Your name<input id="offn" required autocomplete="name"></label>
+<label>Email<input id="offe" type="email" required autocomplete="email"></label>
+<label>Phone<span class="ph"><b>+880</b><input id="offp" type="tel" required inputmode="numeric" autocomplete="tel-national" placeholder="01XXXXXXXXX"></span></label>
+<input id="offh" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<label class="chk"><input id="offc" type="checkbox" required><span>I agree to receive offers from Yusra Infra &amp; Suppliers.</span></label>
+<button class="btn" type="submit">Subscribe</button>
+<p id="offmsg" role="status"></p>
+</form></div></section>
+
 <section id="contact" class="contact"><div class="wrap cgrid">
 <div><h3>Request a quote</h3><p>Tell us about your project and we will reply with a quote. The form opens WhatsApp with your message ready to send.</p>
 <dl><div><dt>Phone / WhatsApp</dt><dd>+880 1868 932554</dd></div><div><dt>Email</dt><dd><a href="mailto:yusrainfrasupply@gmail.com">yusrainfrasupply@gmail.com</a></dd></div><div><dt>Office</dt><dd>Chattogram, Bangladesh</dd></div></dl></div>
@@ -173,6 +201,7 @@ footer{background:var(--ink);color:#aeb8b0;text-align:center;padding:24px;font-s
 <button class="btn" type="submit">Send on WhatsApp</button>
 </form></div></section>
 </main>
+<div class="callbar"><a class="cb call" href="tel:+8801868932554">Call +880 1868 932554</a><a class="cb" href="https://wa.me/8801868932554" target="_blank" rel="noopener">WhatsApp</a></div>
 <footer>© 2026 Yusra Infra &amp; Suppliers. All rights reserved.</footer>
 <script>
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();
@@ -216,6 +245,19 @@ function menu(o){lk.classList.toggle('open',o);bg.textContent=o?'✕':'☰';bg.s
 bg.addEventListener('click',function(){menu(!lk.classList.contains('open'))});
 lk.addEventListener('click',function(e){if(e.target.tagName==='A')menu(false)});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')menu(false)});
-addEventListener('resize',function(){if(innerWidth>900)menu(false)});
+addEventListener('resize',function(){if(innerWidth>1100)menu(false)});
+var BREVO_URL='https://07f10c08.sibforms.com/serve/MUIFADSRqC3AIC_vXBvHtRFlAYhCv1OKVcfi7GsWuIuXwsdZqhdZT8JKeE9CvvX447y-Ka-KlLIBljrSyWbtk4FGRBZ4atKmo3ffIw6ZH7ap9hJUI-lAQ1z4oV1keUrP7DP3KRNQIyIApNq3W30xgg47w_2eOpDN9pVXlWmmRGqWbzKinii7uR2zVngJv0BNZvpoHp-hu91cx4NrEA==';
+document.getElementById('of2').addEventListener('submit',function(e){e.preventDefault();
+if(offh.value)return;
+var f=this,btn=f.querySelector('button'),msg=document.getElementById('offmsg'),ph=offp.value.replace(/\D/g,'').replace(/^880/,'').replace(/^0+/,'');
+var fd=new FormData();fd.append('LASTNAME',offn.value);fd.append('EMAIL',offe.value);fd.append('SMS__COUNTRY_CODE','+880');fd.append('SMS',ph);fd.append('email_address_check','');fd.append('locale','en');
+btn.disabled=true;msg.textContent='Sending...';
+fetch(BREVO_URL+'?isAjax=1',{method:'POST',body:fd}).then(function(r){return r.json()}).then(function(d){
+if(!d.success)throw new Error('fail');
+msg.textContent='Thank you! You are now subscribed to our offers.';f.reset();})
+.catch(function(){var t='Hello Yusra Infra & Suppliers, please add me to your offer list.\nName: '+offn.value+'\nEmail: '+offe.value+'\nPhone: +880'+ph;
+window.open('https://wa.me/8801868932554?text='+encodeURIComponent(t),'_blank');
+msg.textContent='We could not save it automatically. Please press Send in WhatsApp to subscribe.';})
+.finally(function(){btn.disabled=false});});
 </script>
 </body></html>
